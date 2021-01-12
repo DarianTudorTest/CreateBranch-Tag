@@ -3,7 +3,7 @@
   <Version Name="Nightly">
     <Evolutions>
       <Major>2</Major>
-      <Minor>5</Minor>
+      <Minor>12</Minor>
       <BuildNumber>
       </BuildNumber>
       <Revision>
