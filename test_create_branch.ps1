@@ -13,21 +13,25 @@ if($version -eq $null) {
 	$splitVers = GetVersionFromParam $EVOVersion
 	SetVersionFromParams $VersionsXml "Nightly" "Evolutions" $splitVers.Major ([int]$splitVers.Minor+1) $splitVers.BuildNumber $splitVers.Revision;
 	$VersionsXml.Save($(Join-Path $scriptPath -ChildPath "Versions.xml"));
+	$EVOVersion = GetVersionFromXML $VersionsXml "Nightly" "Evolutions";
 	git commit -a -m "Update Version.xml"
 	git tag $EVOVersion -a -m "Tag for version $EVOVersion"
 	git push --porcelain
 	git push --tags --porcelain
 	#git checkout -b "release/$($splitVers.Major).$($splitVers.Minor)"
+	#git push
 }
 else
 {
 	$splitVers = GetVersionFromParam $version
 	SetVersionFromParams $VersionsXml "Nightly" "Evolutions" $splitVers.Major ([int]$splitVers.Minor+1) $splitVers.BuildNumber $splitVers.Revision;
 	$VersionsXml.Save($(Join-Path $scriptPath -ChildPath "Versions.xml"));
+	$EVOVersion = GetVersionFromXML $VersionsXml "Nightly" "Evolutions";
 	git commit -a -m "Update Version.xml"
 	git tag $EVOVersion -a -m "Tag for version $EVOVersion"
 	git push --porcelain
 	git push --tags --porcelain
 	#git checkout -b "release/$($splitVers.Major).$($splitVers.Minor)"
+	#git push
 }
 
