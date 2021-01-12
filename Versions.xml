@@ -3,8 +3,9 @@
   <Version Name="Nightly">
     <Evolutions>
       <Major>2</Major>
-      <Minor>10</Minor>
-      <BuildNumber>5</BuildNumber>
+      <Minor>4</Minor>
+      <BuildNumber>
+      </BuildNumber>
       <Revision>
       </Revision>
       <GitTagFrom>2.6.4</GitTagFrom>
