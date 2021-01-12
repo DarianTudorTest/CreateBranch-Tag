@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Versions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-<Version Name="Nightly">
-    <Evolutions>
+  <Version Name="Nightly">
+     <Evolutions>
       <Major>2</Major>
       <Minor>6</Minor>
       <BuildNumber>5</BuildNumber>
@@ -9,11 +9,12 @@
       </Revision>
       <GitTagFrom>2.6.4</GitTagFrom>
       <GitTagTo>HEAD</GitTagTo>
-    </Evolutions>
-    <Lightning>
+     </Evolutions>
+     <Lightning>
       <Major>10</Major>
       <Minor>6</Minor>
       <BuildNumber>8</BuildNumber>
       <Revision>_Hotfix</Revision>
-    </Lightning>
+     </Lightning>
   </Version>
+</Versions>
