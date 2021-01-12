@@ -1,5 +1,3 @@
-$version = 2.5.4
-
-$splitVers = GetVersionFromParam @version
-
-git checkout -b $splitVers.Minor
+$version = 2
+$version++
+git checkout -b branch$version
