@@ -1,4 +1,5 @@
 param ($version)
+git checkout master
 Write-Host "Loading Helper Functions" -ForegroundColor Cyan;
 $currentLocation = (Get-Item -Path ".\" -Verbose).FullName
 $scriptPath = split-path -parent $MyInvocation.MyCommand.Definition;
