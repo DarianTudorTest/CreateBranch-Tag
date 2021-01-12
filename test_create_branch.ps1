@@ -1,4 +1,4 @@
-param ($version, $branchName) #(optional production name)
+param ([Parameter(Mandatory = $True)]$version, [Parameter(Mandatory = $False)]$branchName, [Parameter(Mandatory = $False)]$productionName)
 git checkout master
 Write-Host "Loading Helper Functions" -ForegroundColor Cyan;
 $currentLocation = (Get-Item -Path ".\" -Verbose).FullName
@@ -26,6 +26,9 @@ $EVOVersion = GetVersionFromXML $VersionsXml "Nightly" "Evolutions";
 	$splitVers = GetVersionFromParam $version
 	SetVersionFromParams $VersionsXml "Nightly" "Evolutions" $splitVers.Major $splitVers.Minor $splitVers.BuildNumber $splitVers.Revision;
 	$VersionsXml.Save($(Join-Path $scriptPath -ChildPath "Versions.xml"));
+	$Result = GetTagFrom $VersionsXml "Nightly" "Evolutions";
+	# $TagFrom = GetTagFrom $VersionsXml "Nightly" "Evolutions";
+	# $TagTo = GetTagTo $VersionsXml "Nightly" "Evolutions";
 	$EVOVersion = GetVersionFromXML $VersionsXml "Nightly" "Evolutions";
 	git commit -a -m "Update Version.xml"
 	git tag $EVOVersion -a -m "Tag for version $EVOVersion"
