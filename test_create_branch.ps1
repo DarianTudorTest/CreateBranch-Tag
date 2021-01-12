@@ -19,7 +19,7 @@ if($version -eq $null) {
 	git push --porcelain
 	git push --tags --porcelain
 	#git checkout -b "release/$($splitVers.Major).$($splitVers.Minor)"
-	#git push origin master
+	#git push origin "release/$($splitVers.Major).$($splitVers.Minor)"
 }
 else
 {
@@ -32,6 +32,6 @@ else
 	git push --porcelain
 	git push --tags --porcelain
 	#git checkout -b "release/$($splitVers.Major).$($splitVers.Minor)"
-	#git push origin master
+	#git push origin "release/$($splitVers.Major).$($splitVers.Minor)"
 }
 
