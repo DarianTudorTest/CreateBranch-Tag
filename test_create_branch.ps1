@@ -18,8 +18,8 @@ if($version -eq $null) {
 	git tag $EVOVersion -a -m "Tag for version $EVOVersion"
 	git push --porcelain
 	git push --tags --porcelain
-	#git checkout -b "release/$($splitVers.Major).$($splitVers.Minor)"
-	#git push origin "release/$($splitVers.Major).$($splitVers.Minor)"
+	git checkout -b "release/$($splitVers.Major).$($splitVers.Minor)"
+	git push origin "release/$($splitVers.Major).$($splitVers.Minor)"
 }
 else
 {
@@ -31,7 +31,7 @@ else
 	git tag $EVOVersion -a -m "Tag for version $EVOVersion"
 	git push --porcelain
 	git push --tags --porcelain
-	#git checkout -b "release/$($splitVers.Major).$($splitVers.Minor)"
-	#git push origin "release/$($splitVers.Major).$($splitVers.Minor)"
+	git checkout -b "release/$($splitVers.Major).$($splitVers.Minor)"
+	git push origin "release/$($splitVers.Major).$($splitVers.Minor)"
 }
 
