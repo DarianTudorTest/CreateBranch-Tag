@@ -27,22 +27,17 @@ $EVOVersion = GetVersionFromXML $VersionsXml "Nightly" "Evolutions";
 # }
 # else
 # {
-	# $splitVers = GetVersionFromParam $version
-	# SetVersionFromParams $VersionsXml "Nightly" "Evolutions" $splitVers.Major $splitVers.Minor $splitVers.BuildNumber $splitVers.Revision;
-	# $VersionsXml.Save($(Join-Path $scriptPath -ChildPath "Versions.xml"));
-	
-	# $splitVers = GetVersionFromParam $version;
-	# SetVersionFromParams $VersionsXml "Nightly" "Evolutions" $splitVers.Major $splitVers.Minor $splitVers.BuildNumber $splitVers.Revision;
-	# SetTagFrom $VersionsXml "Nightly" "Evolutions" $EVOVersion;
-	# $VersionsXml.Save($(Join-Path $scriptPath -ChildPath "Versions.xml"));
+	$splitVers = GetVersionFromParam $version
+	SetVersionFromParams $VersionsXml "Nightly" "Evolutions" $splitVers.Major $splitVers.Minor $splitVers.BuildNumber $splitVers.Revision;
+	$VersionsXml.Save($(Join-Path $scriptPath -ChildPath "Versions.xml"));
 	
 	# ----Change Tag FROM-----
-	$TagFrom = GetTagFrom $VersionsXml "Nightly" "Evolutions";
-	$TagFrom
-	SetTagFrom $VersionsXml "Nightly" "Evolutions" "2.1.4"
-	$VersionsXml.Save($(Join-Path $scriptPath -ChildPath "Versions.xml"));
-	$TagFrom = GetTagFrom $VersionsXml "Nightly" "Evolutions";
-	$TagFrom
+	# $TagFrom = GetTagFrom $VersionsXml "Nightly" "Evolutions";
+	# $TagFrom
+	# SetTagFrom $VersionsXml "Nightly" "Evolutions" "2.1.4"
+	# $VersionsXml.Save($(Join-Path $scriptPath -ChildPath "Versions.xml"));
+	# $TagFrom = GetTagFrom $VersionsXml "Nightly" "Evolutions";
+	# $TagFrom
 	
 	# ----Change Tag TO-----
 	# $TagTo = GetTagTo $VersionsXml "Nightly" "Evolutions";
@@ -53,6 +48,7 @@ $EVOVersion = GetVersionFromXML $VersionsXml "Nightly" "Evolutions";
 	# $TagTo
 	
 	$EVOVersion = GetVersionFromXML $VersionsXml "Nightly" "Evolutions";
+	SetTagFrom $VersionsXml "Nightly" "Evolutions" $EVOVersion
 	git commit -a -m "Update Version.xml"
 	git tag $EVOVersion -a -m "Tag for version $EVOVersion"
 	git push --porcelain
