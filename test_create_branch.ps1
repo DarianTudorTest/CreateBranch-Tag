@@ -31,17 +31,18 @@ $EVOVersion = GetVersionFromXML $VersionsXml "Nightly" "Evolutions";
 	# SetVersionFromParams $VersionsXml "Nightly" "Evolutions" $splitVers.Major $splitVers.Minor $splitVers.BuildNumber $splitVers.Revision;
 	# $VersionsXml.Save($(Join-Path $scriptPath -ChildPath "Versions.xml"));
 	
-	$splitVers = GetVersionFromParam $version;
-	SetVersionFromParams $VersionsXml "Nightly" "Evolutions" $splitVers.Major $splitVers.Minor $splitVers.BuildNumber $splitVers.Revision;
-	SetTagFrom $VersionsXml "Nightly" "Evolutions" $EVOVersion;
-	$VersionsXml.Save($(Join-Path $scriptPath -ChildPath "Versions.xml"));
-	# ----Change Tag FROM-----
-	# $TagFrom = GetTagFrom $VersionsXml "Nightly" "Evolutions";
-	# $TagFrom
-	# SetTagFrom $VersionsXml "Nightly" "Evolutions" "2.1.4"
+	# $splitVers = GetVersionFromParam $version;
+	# SetVersionFromParams $VersionsXml "Nightly" "Evolutions" $splitVers.Major $splitVers.Minor $splitVers.BuildNumber $splitVers.Revision;
+	# SetTagFrom $VersionsXml "Nightly" "Evolutions" $EVOVersion;
 	# $VersionsXml.Save($(Join-Path $scriptPath -ChildPath "Versions.xml"));
-	# $TagFrom = GetTagFrom $VersionsXml "Nightly" "Evolutions";
-	# $TagFrom
+	
+	# ----Change Tag FROM-----
+	$TagFrom = GetTagFrom $VersionsXml "Nightly" "Evolutions";
+	$TagFrom
+	SetTagFrom $VersionsXml "Nightly" "Evolutions" "2.1.4"
+	$VersionsXml.Save($(Join-Path $scriptPath -ChildPath "Versions.xml"));
+	$TagFrom = GetTagFrom $VersionsXml "Nightly" "Evolutions";
+	$TagFrom
 	
 	# ----Change Tag TO-----
 	# $TagTo = GetTagTo $VersionsXml "Nightly" "Evolutions";
@@ -57,15 +58,15 @@ $EVOVersion = GetVersionFromXML $VersionsXml "Nightly" "Evolutions";
 	git push --porcelain
 	git push --tags --porcelain
 	
-	if($branchName -eq $null) 
-	{
-		git checkout -b "releases/$($splitVers.Major).$($splitVers.Minor)"
-		git push origin "releases/$($splitVers.Major).$($splitVers.Minor)"
-	}
-	else
-	{
-		git checkout -b "releases/$branchName"
-		git push origin "releases/$branchName"
-	}
+	# if($branchName -eq $null) 
+	# {
+		# git checkout -b "releases/$($splitVers.Major).$($splitVers.Minor)"
+		# git push origin "releases/$($splitVers.Major).$($splitVers.Minor)"
+	# }
+	# else
+	# {
+		# git checkout -b "releases/$branchName"
+		# git push origin "releases/$branchName"
+	# }
 # }
 
