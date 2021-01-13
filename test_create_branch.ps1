@@ -10,7 +10,7 @@ $includePath = Join-Path $scriptPath -ChildPath "SharedConfigFunctions.ps1";
 
 $VersionsXml = [Xml](Get-Content $(Join-Path $scriptPath -ChildPath "Versions.xml") -ErrorVariable err)
 Write-Host "Getting versions" -ForegroundColor Cyan;
-# $EVOVersion = GetVersionFromXML $VersionsXml "Nightly" "Evolutions";
+$EVOVersion = GetVersionFromXML $VersionsXml "Nightly" "Evolutions";
 
 # ----AutoIncrement----
 # if($version -eq $null) {
