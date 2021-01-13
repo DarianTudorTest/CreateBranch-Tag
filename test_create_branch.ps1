@@ -1,4 +1,4 @@
-param ([Parameter(Mandatory = $True)]$version, [Parameter(Mandatory = $False)]$branchName, [Parameter(Mandatory = $False)]$productionName)
+param ([Parameter(Mandatory = $True)]$version, [Parameter(Mandatory = $False)]$branchName)
 
 git checkout master
 
