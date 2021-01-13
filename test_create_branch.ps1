@@ -11,7 +11,7 @@ $includePath = Join-Path $scriptPath -ChildPath "SharedConfigFunctions.ps1";
 $VersionsXml = [Xml](Get-Content $(Join-Path $scriptPath -ChildPath "Versions.xml") -ErrorVariable err)
 Write-Host "Getting versions" -ForegroundColor Cyan;
 $EVOVersion = GetVersionFromXML $VersionsXml "Nightly" "Evolutions";
-
+$EVOVersion
 # ----AutoIncrement----
 # if($version -eq $null) {
 	# $splitVers = GetVersionFromParam $EVOVersion
@@ -32,7 +32,7 @@ $EVOVersion = GetVersionFromXML $VersionsXml "Nightly" "Evolutions";
 	$VersionsXml.Save($(Join-Path $scriptPath -ChildPath "Versions.xml"));
 	
 	# ----Change Tag FROM-----
-	# $TagFrom = GetTagFrom $VersionsXml "Nightly" "Evolutions";
+	$TagFrom = GetTagFrom $VersionsXml "Nightly" "Evolutions";
 	# $TagFrom
 	# SetTagFrom $VersionsXml "Nightly" "Evolutions" "2.1.4"
 	# $VersionsXml.Save($(Join-Path $scriptPath -ChildPath "Versions.xml"));
