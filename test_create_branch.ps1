@@ -47,7 +47,7 @@ Write-Host "Getting versions" -ForegroundColor Cyan;
 	# $TagTo = GetTagTo $VersionsXml "Nightly" "Evolutions";
 	# $TagTo
 	
-	$EVOVersion = GetVersionFromXML $VersionsXml "Nightly" "Evolutions";
+	# $EVOVersion = GetVersionFromXML $VersionsXml "Nightly" "Evolutions";
 	git commit -a -m "Update Version.xml"
 	git tag $EVOVersion -a -m "Tag for version $EVOVersion"
 	git push --porcelain
