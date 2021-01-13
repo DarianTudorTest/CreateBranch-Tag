@@ -9,7 +9,7 @@
       </BuildNumber>
       <Revision>
       </Revision>
-      <GitTagFrom>2.6.4</GitTagFrom>
+      <GitTagFrom>2.10 6</GitTagFrom>
       <GitTagTo>HEAD</GitTagTo>
     </Evolutions>
     <Lightning>
