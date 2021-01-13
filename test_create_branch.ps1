@@ -53,15 +53,15 @@ $EVOVersion
 	git push --porcelain
 	git push --tags --porcelain
 	
-	if($branchName -eq $null) 
-	{
-		git checkout -b "releases/$($splitVers.Major).$($splitVers.Minor)"
-		git push origin "releases/$($splitVers.Major).$($splitVers.Minor)"
-	}
-	else
-	{
-		git checkout -b "releases/$branchName"
-		git push origin "releases/$branchName"
-	}
+	# if($branchName -eq $null) 
+	# {
+		# git checkout -b "releases/$($splitVers.Major).$($splitVers.Minor)"
+		# git push origin "releases/$($splitVers.Major).$($splitVers.Minor)"
+	# }
+	# else
+	# {
+		# git checkout -b "releases/$branchName"
+		# git push origin "releases/$branchName"
+	# }
 # }
 
