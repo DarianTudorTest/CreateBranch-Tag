@@ -29,7 +29,6 @@ $EVOVersion = GetVersionFromXML $VersionsXml "Nightly" "Evolutions";
 # {
 	$splitVers = GetVersionFromParam $version
 	SetVersionFromParams $VersionsXml "Nightly" "Evolutions" $splitVers.Major $splitVers.Minor $splitVers.BuildNumber $splitVers.Revision;
-	SetTagFrom $VersionsXml "Nightly" "Evolutions" $EVOVersion
 	$VersionsXml.Save($(Join-Path $scriptPath -ChildPath "Versions.xml"));
 	
 	# ----Change Tag FROM-----
@@ -48,6 +47,7 @@ $EVOVersion = GetVersionFromXML $VersionsXml "Nightly" "Evolutions";
 	# $TagTo = GetTagTo $VersionsXml "Nightly" "Evolutions";
 	# $TagTo
 	
+	SetTagFrom $VersionsXml "Nightly" "Evolutions" $EVOVersion
 	$EVOVersion = GetVersionFromXML $VersionsXml "Nightly" "Evolutions";
 	git commit -a -m "Update Version.xml"
 	git tag $EVOVersion -a -m "Tag for version $EVOVersion"
