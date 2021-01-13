@@ -28,7 +28,7 @@ $EVOVersion = GetVersionFromXML $VersionsXml "Nightly" "Evolutions";
 # else
 # {
 	$splitVers = GetVersionFromParam $version
-	SetVersionFromParams $VersionsXml "Nightly" "Evolutions" $splitVers.Major $splitVers.Minor $splitVers.BuildNumber $splitVers.Revision;
+	# SetVersionFromParams $VersionsXml "Nightly" "Evolutions" $splitVers.Major $splitVers.Minor $splitVers.BuildNumber $splitVers.Revision;
 	$VersionsXml.Save($(Join-Path $scriptPath -ChildPath "Versions.xml"));
 	
 	# ----Change Tag FROM-----
@@ -47,22 +47,21 @@ $EVOVersion = GetVersionFromXML $VersionsXml "Nightly" "Evolutions";
 	# $TagTo = GetTagTo $VersionsXml "Nightly" "Evolutions";
 	# $TagTo
 	
-	SetTagFrom $VersionsXml "Nightly" "Evolutions" $EVOVersion
 	$EVOVersion = GetVersionFromXML $VersionsXml "Nightly" "Evolutions";
 	git commit -a -m "Update Version.xml"
 	git tag $EVOVersion -a -m "Tag for version $EVOVersion"
 	git push --porcelain
 	git push --tags --porcelain
 	
-	# if($branchName -eq $null) 
-	# {
-		# git checkout -b "releases/$($splitVers.Major).$($splitVers.Minor)"
-		# git push origin "releases/$($splitVers.Major).$($splitVers.Minor)"
-	# }
-	# else
-	# {
-		# git checkout -b "releases/$branchName"
-		# git push origin "releases/$branchName"
-	# }
+	if($branchName -eq $null) 
+	{
+		git checkout -b "releases/$($splitVers.Major).$($splitVers.Minor)"
+		git push origin "releases/$($splitVers.Major).$($splitVers.Minor)"
+	}
+	else
+	{
+		git checkout -b "releases/$branchName"
+		git push origin "releases/$branchName"
+	}
 # }
 
