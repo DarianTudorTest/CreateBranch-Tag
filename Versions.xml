@@ -3,12 +3,12 @@
   <Version Name="Nightly">
     <Evolutions>
       <Major>2</Major>
-      <Minor>6</Minor>
+      <Minor>7</Minor>
       <BuildNumber>
       </BuildNumber>
       <Revision>
       </Revision>
-      <GitTagFrom>2.6</GitTagFrom>
+      <GitTagFrom>2.61</GitTagFrom>
       <GitTagTo>HEAD</GitTagTo>
     </Evolutions>
     <Lightning>
