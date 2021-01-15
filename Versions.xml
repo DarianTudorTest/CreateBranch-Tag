@@ -8,7 +8,7 @@
       </BuildNumber>
       <Revision>
       </Revision>
-      <GitTagFrom>2.7</GitTagFrom>
+      <GitTagFrom>2.8</GitTagFrom>
       <GitTagTo>HEAD</GitTagTo>
     </Evolutions>
     <Lightning>
