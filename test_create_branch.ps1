@@ -10,7 +10,6 @@ $includePath = Join-Path $scriptPath -ChildPath "SharedConfigFunctions.ps1";
 
 $VersionsXml = [Xml](Get-Content $(Join-Path $scriptPath -ChildPath "Versions.xml") -ErrorVariable err)
 Write-Host "Getting versions" -ForegroundColor Cyan;
-$EVOVersion = GetVersionFromXML $VersionsXml "Nightly" "Evolutions";
 
 # ----AutoIncrement----
 # if($version -eq $null) {
@@ -29,7 +28,7 @@ $EVOVersion = GetVersionFromXML $VersionsXml "Nightly" "Evolutions";
 # {
 	$splitVers = GetVersionFromParam $version
 	SetVersionFromParams $VersionsXml "Nightly" "Evolutions" $splitVers.Major $splitVers.Minor $splitVers.BuildNumber $splitVers.Revision;
-	SetTagFrom $VersionsXml "Nightly" "Evolutions" $EVOVersion;
+	SetTagFrom $VersionsXml "Nightly" "Evolutions" $version;
 	$VersionsXml.Save($(Join-Path $scriptPath -ChildPath "Versions.xml"));
 	
 	# ----Change Tag FROM-----
@@ -49,7 +48,7 @@ $EVOVersion = GetVersionFromXML $VersionsXml "Nightly" "Evolutions";
 	# $TagTo
 	
 	git commit -a -m "Update Version.xml"
-	git tag $EVOVersion -a -m "Tag for version $EVOVersion"
+	git tag $version -a -m "Tag for version $EVOVersion"
 	git push --porcelain
 	git push --tags --porcelain
 	
