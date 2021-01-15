@@ -29,7 +29,7 @@ $EVOVersion = GetVersionFromXML $VersionsXml "Nightly" "Evolutions";
 # {
 	$splitVers = GetVersionFromParam $version
 	SetVersionFromParams $VersionsXml "Nightly" "Evolutions" $splitVers.Major $splitVers.Minor $splitVers.BuildNumber $splitVers.Revision;
-	SetTagFrom $VersionsXml "Nightly" "Evolutions" ($EVOVersion+1);
+	SetTagFrom $VersionsXml "Nightly" "Evolutions" $EVOVersion;
 	$VersionsXml.Save($(Join-Path $scriptPath -ChildPath "Versions.xml"));
 	
 	# ----Change Tag FROM-----
